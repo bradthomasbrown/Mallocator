@@ -34,6 +34,7 @@ ulong ptr2 = allocator.Alloc(512, 16);     // Allocate 512 bytes, 16-byte aligne
 // Allocate strings and byte arrays
 ulong strPtr = allocator.AllocStr("Hello World");
 ulong bytesPtr = allocator.AllocBytes(new byte[] { 0x01, 0x02, 0x03 });
+ulong hexPtr = allocator.AllocByteStr("00 ab f9 0x42");  // Allocates bytes: 0x00, 0xab, 0xf9, 0x42
 
 // Clean up when done
 allocator.Free();
@@ -50,6 +51,7 @@ allocator.Free();
 - `ulong Alloc(uint size, uint align=1)` - Allocate memory block with optional alignment
 - `ulong AllocStr(string s, int width=1)` - Allocate and copy string with character width
 - `ulong AllocBytes(byte[] bs)` - Allocate and copy byte array
+- `ulong AllocByteStr(string s)` - Parse hex string and allocate bytes (e.g., "00 ab f9" → 3 bytes)
 
 ### Cleanup
 - `void Free()` - Release all allocated memory back to the system
