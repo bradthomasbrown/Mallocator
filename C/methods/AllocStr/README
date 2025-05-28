@@ -1,0 +1,17 @@
+# AllocStr Method
+
+This file contains the AllocStr method for the Mallocator.C class avatar.
+
+The AllocStr method allocates memory and copies a string to the allocated region, with support for different character widths.
+
+## Usage
+
+```csharp
+var allocator = new Mallocator.C();
+
+// Allocate and copy a string (1-byte per character)
+ulong strPtr = allocator.AllocStr("Hello World");
+
+// Allocate and copy a string with 2-byte characters
+ulong wideStrPtr = allocator.AllocStr("Hello World", 2);
+```
