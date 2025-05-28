@@ -40,6 +40,31 @@ ulong hexPtr = allocator.AllocByteStr("00 ab f9 0x42");  // Allocates bytes: 0x0
 allocator.Free();
 ```
 
+## API Reference
+
+```csharp
+class Mallocator
+{
+    // Properties
+    ulong Base;
+    ulong Ptr;
+    ulong Size;
+    
+    // Constructor
+    Mallocator(ulong size = 1 * VirtualAlloc.PageGranularity, 
+               VirtualAlloc.MemoryProtectionConstants protect = PAGE_READWRITE);
+    
+    // Memory allocation methods
+    ulong Alloc(uint size, uint align = 1);
+    ulong AllocStr(string s, int width = 1);
+    ulong AllocBytes(byte[] bs);
+    ulong AllocByteStr(string s);
+    
+    // Cleanup
+    void Free();
+}
+```
+
 ## Methods
 
 ### Constructor
