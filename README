@@ -45,9 +45,9 @@ namespace Mallocator {
         
         // Memory allocation methods
         ulong Alloc(uint size, uint align = 1);
-        ulong AllocStr(string s, int width = 1);
+        ulong AllocString(string s, int width = 1);
         ulong AllocBytes(byte[] bs);
-        ulong AllocByteStr(string s);
+        ulong AllocByteString(string s);
         
         // Cleanup
         void Free();

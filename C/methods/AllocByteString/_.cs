@@ -2,7 +2,7 @@ using Kernel32;
 namespace Mallocator {
 public partial class C {
 
-unsafe public ulong AllocByteStr(string s) {
+unsafe public ulong AllocByteString(string s) {
  var hexChars = "";
  for (int i = 0; i < s.Length; i++) {
   char c = s[i];
